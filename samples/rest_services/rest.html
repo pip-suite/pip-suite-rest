@@ -1,0 +1,41 @@
+<div class="layout-row layout-fill layout-align-start-start">
+	<md-card class="layout-column layout-align-start-start" style="width: 400px; height: 300px; padding: 24px;">
+		<h2 class="bm0">Signin</h2> 
+
+		<md-progress-linear md-mode="indeterminate" class="top" 
+			ng-show="processing">
+		</md-progress-linear>
+
+		<md-text-float class="stretch" label="Server URL" type="url" 
+			ng-model="serverUrl" ng-disabled="processing">
+		</md-text-float>
+		<md-text-float class="stretch" label="login" type="text" 
+			ng-model="login" ng-disabled="processing">
+		</md-text-float>
+		<md-text-float class="stretch" label="Password" type="password" 
+			ng-model="password" ng-disabled="processing">
+		</md-text-float>
+<br>
+		<div class="tm20 layout-row layout-align-end-end">
+			<md-button class="md-raised md-primary" 
+				ng-click="onSignin()" ng-disabled="processing">
+				Signin
+			</md-button>
+			<md-button class="md-raised md-primary lm10" 
+				ng-click="onSignout()" ng-disabled="processing">
+				Signout
+			</md-button>
+		</div>
+	</md-card>
+<!--
+	<md-card class="layout-column" style="width: 400px; height: 300px; padding: 24px;">
+		<h2>Output</h2>
+
+		<div class="layout-row">
+			<md-button class="md-raised md-primary" ng-click="onClearOutput()">Clear</md-button>
+			<md-button class="md-raised md-primary lm10" ng-click="onAbout()">About</md-button>
+		</div>
+
+		<md-content fill ng-bind-html="output" class="tm20"></md-content>
+	</md-card>-->
+</div>

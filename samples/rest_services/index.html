@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="no-scroll">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>WEBUI-REST Services</title>
+
+    <link rel="stylesheet" href="../../lib/pip-webui-lib.css" />
+    <link rel="stylesheet" href="../../lib/pip-webui-lib-optional.css" />
+    <link rel="stylesheet" href="../../lib/pip-webui.css" />
+    <link rel="stylesheet" href="../styles/styles.css"/>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">    
+
+    <script src="../chance.js"></script>
+    <script src="../../lib/pip-webui-lib.js"></script>
+    <script src="../../lib/pip-webui-lib-optional.js"></script>
+    <script src="../../lib/pip-webui.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-mocks.js"></script>
+    
+    <script src="../../dist/pip-suite-rest.js"></script>
+
+
+    <script src="index.js"></script>
+    <script src="rest.js"></script>
+    <script src="session.js"></script>
+    <script src="auth.js"></script>
+</head>
+
+<body ng-app="appRestServices" ng-controller="AppController" class="layout-column">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="menu" 
+                ng-click="onToggleMenu()" hide-gt-sm>
+                <span class="icon-menu f20"></span>
+            </md-button>
+            <span>REST API Services</span>
+        </div>
+    </md-toolbar>
+        
+    <div class="layout-row flex">
+        <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')"
+                    class="md-whiteframe-z2 md-sidenav-left layout-column">
+            <md-list>
+                <md-list-item ng-repeat="contentItem in content" 
+                    ng-click="onSwitchPage(contentItem.state)"
+                    ng-class="{ 'selected-state': isActiveState(contentItem.state) }">
+                    <p ui-sref="{{contentItem.state}}">{{contentItem.title}}</p>
+                </md-list-item>
+            </md-list>
+        </md-sidenav>
+        
+        <md-content id="content" class="flex p16">
+            <div ui-view></div>            
+        </md-content>
+    </div>
+</body>
+</html>
